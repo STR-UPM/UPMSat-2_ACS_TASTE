@@ -1,4 +1,4 @@
-# UPMSat-2 ACS in TASTE: A simple demo for the usage of QGen, Simulink, and TASTE.
+# UPMSat-2 ACS in TASTE demo
 
 This repository contains a simple demo to illustrate the bindings between the Simulink models and the QGen code generator, in the [TASTE](https://taste.tools/) architecture model. TASTE is an open-source tool-set developed and maintained by ESA for the development of heterogeneous real-time embedded software.
 
