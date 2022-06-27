@@ -16,6 +16,39 @@
 *
 !.gitignore
 
+# Ignore everything except hand written files from measurer_and_actuator:
+!measurer_and_actuator
+measurer_and_actuator/*
+!measurer_and_actuator/C
+!measurer_and_actuator/CPP
+!measurer_and_actuator/Ada
+!measurer_and_actuator/SDL
+!measurer_and_actuator/Simulink
+!measurer_and_actuator/QGenC
+!measurer_and_actuator/QGenAda
+!measurer_and_actuator/GUI
+!measurer_and_actuator/Blackbox_Device
+!measurer_and_actuator/implem
+measurer_and_actuator/implem/*
+
+
+#   `-> implementation: default:
+!measurer_and_actuator/implem/default
+measurer_and_actuator/implem/default/*
+!measurer_and_actuator/implem/default/Ada
+measurer_and_actuator/implem/default/Ada/*
+!measurer_and_actuator/implem/default/Ada/src
+measurer_and_actuator/implem/default/Ada/src/*
+!measurer_and_actuator/implem/default/Ada/src/measurer_and_actuator.adb
+#   `-> implementation: cfs:
+!measurer_and_actuator/implem/cfs
+measurer_and_actuator/implem/cfs/*
+!measurer_and_actuator/implem/cfs/C
+measurer_and_actuator/implem/cfs/C/*
+!measurer_and_actuator/implem/cfs/C/src
+measurer_and_actuator/implem/cfs/C/src/*
+!measurer_and_actuator/implem/cfs/C/src/measurer_and_actuator.c
+
 # Ignore everything except hand written files from simulated_acs_hw:
 !simulated_acs_hw
 simulated_acs_hw/*
@@ -49,37 +82,33 @@ simulated_acs_hw/implem/cfs/C/*
 simulated_acs_hw/implem/cfs/C/src/*
 !simulated_acs_hw/implem/cfs/C/src/simulated_acs_hw.c
 
-# Ignore everything except hand written files from measurer_and_actuator:
-!measurer_and_actuator
-measurer_and_actuator/*
-!measurer_and_actuator/C
-!measurer_and_actuator/CPP
-!measurer_and_actuator/Ada
-!measurer_and_actuator/SDL
-!measurer_and_actuator/Simulink
-!measurer_and_actuator/QGenC
-!measurer_and_actuator/QGenAda
-!measurer_and_actuator/GUI
-!measurer_and_actuator/Blackbox_Device
-!measurer_and_actuator/implem
-measurer_and_actuator/implem/*
+# Ignore everything except hand written files from acs_algorithm:
+!acs_algorithm
+acs_algorithm/*
+!acs_algorithm/C
+!acs_algorithm/CPP
+!acs_algorithm/Ada
+!acs_algorithm/SDL
+!acs_algorithm/Simulink
+!acs_algorithm/QGenC
+!acs_algorithm/QGenAda
+!acs_algorithm/GUI
+!acs_algorithm/Blackbox_Device
+!acs_algorithm/implem
+acs_algorithm/implem/*
 
 
 #   `-> implementation: default:
-!measurer_and_actuator/implem/default
-measurer_and_actuator/implem/default/*
-!measurer_and_actuator/implem/default/Ada
-measurer_and_actuator/implem/default/Ada/*
-!measurer_and_actuator/implem/default/Ada/src
-measurer_and_actuator/implem/default/Ada/src/*
-!measurer_and_actuator/implem/default/Ada/src/measurer_and_actuator.adb
+!acs_algorithm/implem/default
+acs_algorithm/implem/default/*
+!acs_algorithm/implem/default/QGenAda
+acs_algorithm/implem/default/QGenAda/*
+!acs_algorithm/implem/default/QGenAda/src
 #   `-> implementation: cfs:
-!measurer_and_actuator/implem/cfs
-measurer_and_actuator/implem/cfs/*
-!measurer_and_actuator/implem/cfs/C
-measurer_and_actuator/implem/cfs/C/*
-!measurer_and_actuator/implem/cfs/C/src
-measurer_and_actuator/implem/cfs/C/src/*
-!measurer_and_actuator/implem/cfs/C/src/measurer_and_actuator.c
+!acs_algorithm/implem/cfs
+acs_algorithm/implem/cfs/*
+!acs_algorithm/implem/cfs/QGenC
+acs_algorithm/implem/cfs/QGenC/*
+!acs_algorithm/implem/cfs/QGenC/src
 
 # EOF
