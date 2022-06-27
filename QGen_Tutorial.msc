@@ -1,0 +1,32 @@
+mscdocument QGen_Tutorial /* MSC AND */;
+    language ASN.1;
+    data QGen_Tutorial.asn;
+/* CIF MSCDOCUMENT (0, 0) (4200, 2300) */
+mscdocument Nominal /* MSC REPEAT */;
+    language ASN.1;
+    data QGen_Tutorial.asn;
+msc QGen_Tutorial;
+/* CIF INSTANCE (283, 98) (360, 87) (800, 2090) */
+instance Simulated_ACS_HW;
+/* CIF MESSAGE (1191, 318) (463, 318) */
+in Read_MGM from Measurer_And_Actuator;
+/* CIF MESSAGE (1191, 497) (463, 497) */
+in control_MGT from Measurer_And_Actuator;
+endinstance;
+/* CIF INSTANCE (984, 98) (413, 87) (800, 2090) */
+instance Measurer_And_Actuator;
+/* CIF MESSAGE (1191, 318) (463, 318) */
+out Read_MGM to Simulated_ACS_HW;
+/* CIF MESSAGE (1191, 407) (1913, 407) */
+out Step to ACS_Algorithm;
+/* CIF MESSAGE (1191, 497) (463, 497) */
+out control_MGT to Simulated_ACS_HW;
+endinstance;
+/* CIF INSTANCE (1770, 98) (283, 87) (800, 2090) */
+instance ACS_Algorithm;
+/* CIF MESSAGE (1191, 407) (1913, 407) */
+in Step from Measurer_And_Actuator;
+endinstance;
+endmsc;
+endmscdocument;
+endmscdocument;
