@@ -103,16 +103,16 @@ acs_algorithm/implem/*
 acs_algorithm/implem/default/*
 !acs_algorithm/implem/default/QGenAda
 acs_algorithm/implem/default/QGenAda/*
-!acs_algorithm/implem/default/QGenAda/src/**
-#acs_algorithm/implem/default/QGenAda/src/*
-#!acs_algorithm/implem/default/QGenAda/src/*
+!acs_algorithm/implem/default/QGenAda/src
+acs_algorithm/implem/default/QGenAda/src/*
+!acs_algorithm/implem/default/QGenAda/src/*
 #   `-> implementation: cfs:
 !acs_algorithm/implem/cfs
 acs_algorithm/implem/cfs/*
 !acs_algorithm/implem/cfs/QGenC
 acs_algorithm/implem/cfs/QGenC/*
-!acs_algorithm/implem/cfs/QGenC/src/**
-#acs_algorithm/implem/cfs/QGenC/src/*
-#!acs_algorithm/implem/cfs/QGenC/src/*
+!acs_algorithm/implem/cfs/QGenC/src
+acs_algorithm/implem/cfs/QGenC/src/*
+!acs_algorithm/implem/cfs/QGenC/src/*
 
 # EOF
