@@ -12,16 +12,15 @@
 #     This script SHALL be invoked in the TASTE project root since it depends on
 #     the location of the work directory.
 #
-#     Altough, the entry point is located in the bottom af all functions. This
+#     Although, the entry point is located in the bottom af all functions. This
 #     script is intended to be read from top to bottom.
 
 #                 Copyright (C) 2022 STRAST-UPM research group
 #           This work was developed in the context of the AURORA project
 #
 # - Author:  Angel Perez Munoz <groverperezm-2000@hotmail.com>
-# - Company: STRAST reasearch group from UPM.
+# - Company: STRAST research group from UPM.
 
-#from importlib.resources import path
 import os
 import sys
 
@@ -132,7 +131,7 @@ def lines_for_fn(fn_name : str) -> str:
 
     Returns:
         The lines (a string) that should be added to the gitignore in order to
-        include only the code writen by the user for the function fn_name.
+        include only the code written by the user for the function fn_name.
     """
 
     # Ignore base dir from fn_name:
@@ -182,7 +181,7 @@ def implementations_from(fn_name : str) -> List[str]:
         implementations = dirs_inside(implem_folder_name)
         return implementations
     else:
-        return None
+        return [""]
 
 def languages_from(fn_name : str, implem_name: str) -> List[str]:
     implem_folder_name = os.path.join(GI_FOLDER, fn_name, "implem", implem_name)
@@ -222,7 +221,7 @@ def user_file_from(fn_name : str, lang : str) -> str:
     if lang == "QGenC" or lang == "QGenAda" or lang == "Simulink":
         return "*"
     else:
-        return None
+        return ""
 
 # print_debug
 #############
@@ -287,7 +286,7 @@ TP
                 `-- <Implementation name n>
 
 *However*, when there is only one implementation for a TASTE function, the implem
-folder is omited. E.g: we have a QGenC function named MyQGenFunc, then the tree
+folder is omitted. E.g: we have a QGenC function named MyQGenFunc, then the tree
 for that function would be:
 
     TP
