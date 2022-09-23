@@ -1,3 +1,6 @@
 [submodule "UPMSat-2_Simulink_Models"]
 	path = UPMSat-2_Simulink_Models
 	url = git@github.com:STR-UPM/UPMSat-2_Simulink_Models.git
+[submodule "taste-scripts"]
+	path = taste-scripts
+	url = https://github.com/STR-UPM/TASTE_Scripts
