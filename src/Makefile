@@ -9,6 +9,11 @@ SPACECREATOR?=spacecreator.AppImage
 # export <PARTITIONNAME>_USER_LDFLAGS=...
 # export <PARTITIONNAME>_EXTERNAL_SOURCE_PATH=
 
+# NOTE: We are adding this folder which gathers the simulated data in a matrix format.
+# Those values are only used by "Simulated_HW" configured with the "simulated_data" implementation
+MY_DIR:=$(patsubst %/,%,$(dir $(realpath $(lastword $(MAKEFILE_LIST)))))
+export DEMO_EXTERNAL_SOURCE_PATH=$(MY_DIR)/simulated_data
+
 # If you need to reset this Makefile to its original state, run:
 # $ space-creator reset
 
