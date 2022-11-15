@@ -1,5 +1,5 @@
 <InterfaceView asn1file="QGen_Tutorial.asn" mscfile="/home/taste/AURORA_UPM/QGen_Tutorial/QGen_Tutorial.msc">
-<Function name="Simulated_ACS_HW" is_type="NO" language="C" default_implementation="cfs" FPGA_Configurations="">
+<Function name="Simulated_ACS_HW" is_type="NO" language="C" default_implementation="simulated_values" FPGA_Configurations="">
     <Property name="Taste::coordinates" value="27300 51000 48400 59000"/>
 <Provided_Interface name="Read_MGM" kind="Unprotected" layer="default" wcet="0">
     <Output_Parameter name="BBT" type="T-B-b-T" encoding="NATIVE"/>
@@ -14,6 +14,7 @@
     <Implementations>
         <Implementation name="default" language="Ada"/>
         <Implementation name="cfs" language="C"/>
+        <Implementation name="simulated_values" language="C"/>
     </Implementations>
 </Function>
 
@@ -57,7 +58,7 @@
 
 <Function name="Measurer_And_Actuator" is_type="NO" language="C" default_implementation="cfs" FPGA_Configurations="">
     <Property name="Taste::coordinates" value="20100 26600 50200 34600"/>
-<Provided_Interface name="Tick" kind="Cyclic" layer="default" priority="1" dispatch_offset="0" wcet="0" period="40" stack_size="50">
+<Provided_Interface name="Tick" kind="Cyclic" layer="default" wcet="0" dispatch_offset="0" priority="1" stack_size="50" period="0">
     <Property name="Taste::coordinates" value="23600 26600"/>
 </Provided_Interface>
 
@@ -118,15 +119,15 @@
 </Function>
 
 <Connection >
-    <Source func_name="ACS" ri_name="Read_MGM"/>
-    <Target func_name="Simulated_ACS_HW" pi_name="Read_MGM"/>
-    <Property name="Taste::coordinates" value="31600 43900 31600 47300 31600 50700"/>
-</Connection>
-
-<Connection >
     <Source func_name="ACS" ri_name="control_MGT"/>
     <Target func_name="Simulated_ACS_HW" pi_name="control_MGT"/>
     <Property name="Taste::coordinates" value="43600 43900 43600 47300 43700 50700"/>
+</Connection>
+
+<Connection >
+    <Source func_name="ACS" ri_name="Read_MGM"/>
+    <Target func_name="Simulated_ACS_HW" pi_name="Read_MGM"/>
+    <Property name="Taste::coordinates" value="31600 43900 31600 47300 31600 50700"/>
 </Connection>
 
 </InterfaceView>

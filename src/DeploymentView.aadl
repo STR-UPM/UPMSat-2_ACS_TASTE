@@ -18,13 +18,13 @@ END deploymentview::DV::Node_Linux;
 
 PACKAGE deploymentview::DV
 PUBLIC
-
-WITH interfaceview::IV::Simulated_ACS_HW;
  
 WITH interfaceview::IV::ACS::ACS_Algorithm;
 
 WITH interfaceview::IV::ACS::Measurer_And_Actuator;
 
+
+WITH interfaceview::IV::Simulated_ACS_HW;
 
 
 WITH ocarina_processors_x86;
@@ -38,11 +38,7 @@ SYSTEM Node_Linux
 END Node_Linux;
 
 SYSTEM IMPLEMENTATION Node_Linux.others
-SUBCOMPONENTS
-   IV_Simulated_ACS_HW : SYSTEM interfaceview::IV::Simulated_ACS_HW::Simulated_ACS_HW.others {
-      Taste::FunctionName => "Simulated_ACS_HW";
-   };
- 
+SUBCOMPONENTS 
    IV_ACS_Algorithm : SYSTEM interfaceview::IV::ACS::ACS_Algorithm::ACS_Algorithm.others {
       Taste::FunctionName => "ACS_Algorithm";
    };
@@ -52,6 +48,10 @@ SUBCOMPONENTS
    };
 
 
+   IV_Simulated_ACS_HW : SYSTEM interfaceview::IV::Simulated_ACS_HW::Simulated_ACS_HW.others {
+      Taste::FunctionName => "Simulated_ACS_HW";
+   };
+
    demo : PROCESS deploymentview::DV::Node_Linux::demo.others {
       Deployment::Port_Number => 0;
       TASTE_DV_Properties::CoverageEnabled => false;
@@ -59,13 +59,7 @@ SUBCOMPONENTS
       TASTE::LDFlags => "-no-pie";
    };
    x86_linux : PROCESSOR ocarina_processors_x86::x86.linux;
-PROPERTIES
-   
-   Taste::APLC_Binding => (reference (demo)) APPLIES TO IV_Simulated_ACS_HW;
-   
-   
-   
- 
+PROPERTIES 
    
    Taste::APLC_Binding => (reference (demo)) APPLIES TO IV_ACS_Algorithm;
    
@@ -78,6 +72,12 @@ PROPERTIES
    
    
 
+
+   
+   Taste::APLC_Binding => (reference (demo)) APPLIES TO IV_Simulated_ACS_HW;
+   
+   
+   
 
    Actual_Processor_Binding => (reference (x86_linux)) APPLIES TO demo;
 END Node_Linux.others;

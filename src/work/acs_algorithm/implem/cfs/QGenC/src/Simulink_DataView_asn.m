@@ -54,3 +54,13 @@ T_Boolean = Simulink.AliasType;
 T_Boolean.BaseType = 'boolean';
 T_Boolean.Description = 'A simple BOOLEAN';
 
+% Values for PID:
+PID_value_acs_algorithm = 0;
+PID_value_measurer_and_actuator = 1;
+PID_value_simulated_acs_hw = 2;
+PID_value_env = 3;
+PID = Simulink.AliasType;
+PID.BaseType = 'int32';
+PID.Description = 'values of ENUMERATED PID';
+
+
