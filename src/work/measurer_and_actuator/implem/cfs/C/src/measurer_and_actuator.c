@@ -43,13 +43,13 @@ void measurer_and_actuator_PI_Tick(void)
 {
    asn1SccT_B_b_T bbt;
    asn1SccT_Omega omega = {
-       .arr = {0.0, 0.0, 0.1}
+       .arr = {0.0F, 0.0F, 0.1F}
    };
-   asn1SccT_Float k_pb = 2.0;
-   asn1SccT_Float k_pe = 8.0;
-   asn1SccT_Float m_m  = 15.0;
+   asn1SccT_Float k_pb = 2.0F;
+   asn1SccT_Float k_pe = 8.0F;
+   asn1SccT_Float m_m  = 15.0F;
    asn1SccT_MT_Working mt_working = {
-       .arr = {1.0, 1.0, 1.0}
+       .arr = {1.0F, 1.0F, 1.0F}
    };
    asn1SccT_Control control;
 
