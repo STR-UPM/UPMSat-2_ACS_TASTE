@@ -132,11 +132,11 @@ static int config_serial_port()
  */
 static int open_serial_port(void) {
     /**
-     * O_NOCTTY: prevent the serial device from becoming the controlling terminal,
-     *           so this won't be the controlling process.
-     * O_NDELAY: non-blocking mode for open, and I/O operations
+     * O_NOCTTY:   prevent the serial device from becoming the controlling terminal,
+     *             so this won't be the controlling process.
+     * O_NONBLOCK: non-blocking mode for open, and I/O operations
      */
-    serial_port = open(SERIAL_PORT_NAME, O_RDWR | O_NOCTTY | O_NDELAY);
+    serial_port = open(SERIAL_PORT_NAME, O_RDWR | O_NOCTTY | O_NONBLOCK);
 
     return serial_port == -1;
 }
