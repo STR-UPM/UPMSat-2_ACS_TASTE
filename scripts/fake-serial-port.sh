@@ -8,4 +8,4 @@ TTY_TARGET=/dev/ttyOBC
 
 sudo socat -d -d -v pty,rawer,mode=666,link=${TTY_HOST},b115200 \
                     pty,rawer,mode=666,link=${TTY_TARGET},b115200 \
-                    &> /dev/null
+                    1> /dev/null
