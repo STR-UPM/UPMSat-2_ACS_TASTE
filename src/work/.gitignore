@@ -63,6 +63,14 @@ measurer_and_actuator/implem/cfs/C/src/*
 simulated_acs_hw/*
 !simulated_acs_hw/implem
 simulated_acs_hw/implem/*
+!simulated_acs_hw/implem/uart_comm
+simulated_acs_hw/implem/uart_comm/*
+!simulated_acs_hw/implem/uart_comm/C
+simulated_acs_hw/implem/uart_comm/C/*
+!simulated_acs_hw/implem/uart_comm/C/src
+simulated_acs_hw/implem/uart_comm/C/src/*
+!simulated_acs_hw/implem/uart_comm/C/src/simulated_acs_hw.c
+
 !simulated_acs_hw/implem/default
 simulated_acs_hw/implem/default/*
 !simulated_acs_hw/implem/default/Ada
