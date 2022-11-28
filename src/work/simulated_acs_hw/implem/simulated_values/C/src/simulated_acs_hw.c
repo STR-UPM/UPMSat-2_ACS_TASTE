@@ -23,6 +23,7 @@
 
 #include "simulated_data.h" // test_vector
 
+#include <stdio.h>
 #include <stdbool.h>
 
 // -- Private types & constants:
