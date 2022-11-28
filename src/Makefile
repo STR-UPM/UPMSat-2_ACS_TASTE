@@ -13,6 +13,7 @@ SPACECREATOR?=spacecreator.AppImage
 # Those values are only used by "Simulated_HW" configured with the "simulated_data" implementation
 MY_DIR:=$(patsubst %/,%,$(dir $(realpath $(lastword $(MAKEFILE_LIST)))))
 export DEMO_EXTERNAL_SOURCE_PATH=$(MY_DIR)/simulated_data
+export PARTITION_1_EXTERNAL_SOURCE_PATH=$(MY_DIR)/simulated_data
 
 # If you need to reset this Makefile to its original state, run:
 # $ space-creator reset
