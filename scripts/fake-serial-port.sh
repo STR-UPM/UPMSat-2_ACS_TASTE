@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Note that the ACS_PIL communicates through TTY_HOST
-#       and the ACS algorithm running in TASTE though TTY_TARGET
+#      and the ACS algorithm (running in TASTE) though TTY_TARGET
 TTY_HOST=/dev/ttyUSB0
 TTY_TARGET=/dev/ttyOBC
 

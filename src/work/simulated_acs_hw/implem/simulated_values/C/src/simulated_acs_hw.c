@@ -23,19 +23,21 @@
 
 #include "simulated_data.h" // test_vector
 
+#include <stdio.h>
 #include <stdbool.h>
 
 // -- Private types & constants:
 
-static const size_t nrows = sizeof(test_vector) / sizeof(test_vector[0]);
+static const size_t nrows = 1500U;
+static       size_t step  = 0U;
 
 static const size_t bbt_offset =  0U;
 static const size_t bbt_length = 15U;
+
 static const size_t control_offset = 15U;
 static const size_t control_length =  3U;
 
 static const double tolerance = 0.0F;
-static size_t step = 0U;
 
 // -- Private functions:
 

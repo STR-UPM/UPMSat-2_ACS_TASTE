@@ -29,7 +29,14 @@
  * Local variables and constants
  ******************************************************************************/
 
-const char *  SERIAL_PORT_NAME = "/dev/ttyOBC";
+
+const char *  SERIAL_PORT_NAME =
+#if defined(RTEMS_POSIX) || defined(DLEON_RTEMS)
+    "/dev/console_b"; /**> RTEMS serial ports ref.: https://devel.rtems.org/wiki/TBR/BSP/Leon3 */
+#else
+    "/dev/ttyOBC";
+#endif
+
 const speed_t SERIAL_PORT_BAUD_RATE = B115200;
 
 int serial_port = -1; /**< serial port's file descriptor*/
@@ -112,7 +119,10 @@ static int config_serial_port()
 
     /** Configures the baud rate
      */
-    (void) cfsetspeed(&serial_port_config, SERIAL_PORT_BAUD_RATE);
+    if (cfsetspeed(&serial_port_config, SERIAL_PORT_BAUD_RATE)) {
+        perror("[Simulated_ACS_HW] ERROR: Could not set the baud rate");
+        return 1;
+    }
 
     /** Apply configuration immediately and flush the  I/O buffers:
      */
@@ -149,11 +159,15 @@ void simulated_acs_hw_startup(void) {
    puts ("[Simulated_ACS_HW] Startup");
 
    if (open_serial_port()) {
-       puts("[Simulated_ACS_HW] ERROR: Could not open serial port");
+       printf("[Simulated_ACS_HW] ERROR: Could not open serial port %s\n", SERIAL_PORT_NAME);
+   } else {
+       printf("[Simulated_ACS_HW] Serial port %s is now open\n", SERIAL_PORT_NAME);
    }
 
    if (config_serial_port()) {
-       puts("[Simulated_ACS_HW] ERROR: Could not configure the serial port");
+       printf("[Simulated_ACS_HW] ERROR: Could not configure the serial port %s\n", SERIAL_PORT_NAME);
+   } else {
+       printf("[Simulated_ACS_HW] Serial port %s is now configured\n", SERIAL_PORT_NAME);
    }
 }
 
@@ -176,7 +190,7 @@ void simulated_acs_hw_PI_Read_MGM(asn1SccT_B_b_T *OUT_bbt)
         int nbytes = read(serial_port, (void *) &received_value, sizeof(received_value));
 
         printf("[Simulated_ACS_HW] Received %d bytes from client\n", nbytes);
-        if (nbytes < 0) {
+        if (nbytes <= 0) {
             perror("[Simulated_ACS_HW] ERROR: read");
         } else {
             OUT_bbt->arr[i] = received_value;
@@ -203,7 +217,7 @@ void simulated_acs_hw_PI_control_MGT(const asn1SccT_Control *IN_control)
         to_be_sent[i] = IN_control->arr[i];
     }
 
-    if (write(serial_port, (void *) &to_be_sent, sizeof(to_be_sent)) < 0) {
+    if (write(serial_port, (void *) &to_be_sent, sizeof(to_be_sent)) <= 0) {
         perror("[Simulated_ACS_HW] ERROR: send");
     } else {
         puts("[Simulated_ACS_HW] Send data went fine!\n");
