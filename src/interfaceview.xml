@@ -1,4 +1,24 @@
-<InterfaceView asn1file="QGen_Tutorial.asn" mscfile="/home/taste/AURORA_UPM/QGen_Tutorial/QGen_Tutorial.msc">
+<InterfaceView asn1file="QGen_Tutorial.acn" mscfile="/home/taste/AURORA_UPM/QGen_Tutorial/QGen_Tutorial.msc">
+<Function name="Simulated_ACS_HW" is_type="NO" language="C" default_implementation="simulated_values" FPGA_Configurations="">
+    <Property name="Taste::coordinates" value="27300 51000 48400 59000"/>
+<Provided_Interface name="Read_MGM" kind="Unprotected" layer="default" wcet="0">
+    <Output_Parameter name="BBT" type="T-B-b-T" encoding="NATIVE"/>
+    <Property name="Taste::coordinates" value="31600 51000"/>
+</Provided_Interface>
+
+<Provided_Interface name="control_MGT" kind="Unprotected" layer="default" wcet="0">
+    <Input_Parameter name="control" type="T-Control" encoding="NATIVE"/>
+    <Property name="Taste::coordinates" value="43700 51000"/>
+</Provided_Interface>
+
+    <Implementations>
+        <Implementation name="default" language="Ada"/>
+        <Implementation name="cfs" language="C"/>
+        <Implementation name="simulated_values" language="C"/>
+        <Implementation name="uart_comm" language="C"/>
+    </Implementations>
+</Function>
+
 <Function name="ACS" is_type="NO" language="SDL" default_implementation="default" FPGA_Configurations="">
     <Property name="Taste::coordinates" value="27100 25500 48600 43300"/>
     <Property name="Taste::RootCoordinates" value="14300 9700 56100 38900"/>
@@ -39,7 +59,7 @@
 
 <Function name="Measurer_And_Actuator" is_type="NO" language="C" default_implementation="cfs" FPGA_Configurations="">
     <Property name="Taste::coordinates" value="20100 26600 50200 34600"/>
-<Provided_Interface name="Tick" kind="Cyclic" layer="default" wcet="0" priority="1" period="40" stack_size="50" dispatch_offset="0">
+<Provided_Interface name="Tick" kind="Cyclic" layer="default" period="40" stack_size="50" wcet="0" priority="1" dispatch_offset="0">
     <Property name="Taste::coordinates" value="23600 26600"/>
 </Provided_Interface>
 
@@ -96,26 +116,6 @@
 
     <Implementations>
         <Implementation name="default" language="SDL"/>
-    </Implementations>
-</Function>
-
-<Function name="Simulated_ACS_HW" is_type="NO" language="C" default_implementation="uart_comm" FPGA_Configurations="">
-    <Property name="Taste::coordinates" value="27300 51000 48400 59000"/>
-<Provided_Interface name="Read_MGM" kind="Unprotected" layer="default" wcet="0">
-    <Output_Parameter name="BBT" type="T-B-b-T" encoding="NATIVE"/>
-    <Property name="Taste::coordinates" value="31600 51000"/>
-</Provided_Interface>
-
-<Provided_Interface name="control_MGT" kind="Unprotected" layer="default" wcet="0">
-    <Input_Parameter name="control" type="T-Control" encoding="NATIVE"/>
-    <Property name="Taste::coordinates" value="43700 51000"/>
-</Provided_Interface>
-
-    <Implementations>
-        <Implementation name="default" language="Ada"/>
-        <Implementation name="cfs" language="C"/>
-        <Implementation name="simulated_values" language="C"/>
-        <Implementation name="uart_comm" language="C"/>
     </Implementations>
 </Function>
 

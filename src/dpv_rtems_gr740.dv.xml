@@ -1,9 +1,9 @@
 <DeploymentView>
-    <Node name="GR740 RTEMS POHIC_1" type="ocarina_processors_leon::leon3.rtems51_posix" node_label="Node_1" namespace="ocarina_processors_leon">
+    <Node name="GR740_RTEMS_POHIC_1" type="ocarina_processors_leon::leon3.rtems51_posix" node_label="Node_1" namespace="ocarina_processors_leon">
         <Property name="Taste::coordinates" value="34500 15500 75500 33000"/>
         <Partition name="Partition_1">
             <Property name="Taste::coordinates" value="38900 19900 71600 30400"/>
-            <Function name="Simulated_ACS_HW" path="Simulated_ACS_HW" selected_implementation="uart_comm"/>
+            <Function name="Simulated_ACS_HW" path="Simulated_ACS_HW" selected_implementation="simulated_values"/>
             <Function name="Measurer_And_Actuator" path="ACS::Measurer_And_Actuator" selected_implementation="cfs"/>
             <Function name="ACS_Algorithm" path="ACS::ACS_Algorithm"/>
         </Partition>
